@@ -1,7 +1,7 @@
 
 ### `README.md`
 
-```markdown
+```
 # Animal Simulation in C#
 
 This project is a simulation of various animals and their behaviors using Object-Oriented Programming (OOP) principles in C#. The project defines an abstract base class `Animal` and several concrete subclasses like `Dog`, `Cat`, and `Frog`. Each subclass implements specific behaviors typical for the corresponding animal, including responses based on different moods. The project also includes interfaces for land and water animals.
@@ -88,45 +88,58 @@ Here's the updated UML diagram representing the structure of the project, includ
 
 ```plaintext
              +------------------------+
-             |        Animal           | 
+             |   <<abstract>>         |
+             |     + Animal           | 
              |------------------------|
-             | - mammals: bool         |
-             | - carnivorous: bool     |
-             | - mood: int             |
+             | # mammals: bool        |
+             | # carnivorous: bool    |
+             | + MOOD_HAPPY: int      |
+             | + MOOD_SCARE: int      |
+             | # mood: int            |
              |------------------------|
-             | + SayHello()            |
-             | + SayHello(int)         |
-             | + IsMammal(): bool      |
-             | + IsCarnivorous(): bool |
+             | + Animal(bool, bool, int) |
+             | + SayHello()              |
+             | + SayHello(int)           |
+             | + IsMammal(): bool        |
+             | + IsCarnivorous(): bool   |
              +--------+---------------+
                       |
             +---------+----------------+
             |                          |
       +-----+--------+          +------+---------+
-      |    Dog       |          |    Cat         |
+      |  + Dog       |          | + Cat         |
       |--------------|          |---------------|
+      | - numberOfLegs: int     | - numberOfLegs: int     |
+      |--------------|          |---------------|
+      | + Dog(int)   |          | + Cat(int)              |
       | + GetNumberOfLegs(): int| + GetNumberOfLegs(): int|
       | + SayHello()            | + SayHello()            |
+      | + SayHello(int)         | + SayHello(int)         |
       +--------------+          +---------------+
                       |
                  +-----+--------+
-                 |    Frog      |
+                 |  + Frog      |
                  |--------------|
+                 | - numberOfLegs: int      |
+                 |--------------|
+                 | + Frog(int)              |
                  | + GetNumberOfLegs(): int |
                  | + HasGills(): bool       |
                  | + HasLaysEggs(): bool    |
-                 | + SayHello()             |
+                 | + SayHello(int)          |
                  +--------------+
                        ^
                        |
               +--------+-------+
-              |     ILand      |
+              |  <<interface>> |
+              |   + ILand      |
               |----------------|
               | + GetNumberOfLegs(): int |
               +----------------+
 
               +----------------+
-              |     IWater     |
+              |  <<interface>> |
+              |   + IWater     |
               |----------------|
               | + HasGills(): bool       |
               | + HasLaysEggs(): bool    |
