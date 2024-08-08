@@ -1,7 +1,7 @@
 
 ### `README.md`
 
-```
+
 # Animal Simulation in C#
 
 This project is a simulation of various animals and their behaviors using Object-Oriented Programming (OOP) principles in C#. The project defines an abstract base class `Animal` and several concrete subclasses like `Dog`, `Cat`, and `Frog`. Each subclass implements specific behaviors typical for the corresponding animal, including responses based on different moods. The project also includes interfaces for land and water animals.
